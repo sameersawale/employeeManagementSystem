@@ -25,13 +25,13 @@
     <input type="email" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4"  required>
     <input type="text" th:field="*{contactNumber}" placeholder="Contact Number" class="form-control mb-4 col-4"  required>
     <label>Picture: </label>
-    <input type="file" name="image" id="image" accept="image/png, image/jpeg" />
+    <input type="file" name="image" accept="image/png, image/jpeg" />
     <br>
 
     <button type="submit" class="btn btn-info col-"> Save Employee</button>
   </form>
   <br>
-  <a th:href = "@{/}"> Back to Employee List</a>
+  <a th:href = "@{/}"> Back to Home Page</a>
 </div>
 </body>
 </html>

@@ -109,6 +109,6 @@ public class Employee {
     public String getPictureImagePath(){
         if(picture==null || id==0)
             return null;
-        return "/picture/" +id+"/"+picture;
+        return "/picture/" + id + "/" +picture;
     }
 }

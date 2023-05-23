@@ -39,9 +39,10 @@ public class EmployeeController {
         employee.setPicture(fileName);
 
         Employee employee1=employeeService.addEmployee(employee);
-        String uploadDir= "./picture/" +employee1.getId();
+        String uploadDir= "./picture/"+employee1.getId();
 
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+
         return new RedirectView("/", true);
     }
 

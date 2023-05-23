@@ -20,6 +20,7 @@ public class FileUploadUtil {
         }
         try (InputStream inputStream=multipartFile.getInputStream()){
             Path filePath=uploadPath.resolve(fileName);
+            System.out.println(filePath.toString());
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
         }
         catch (IOException ioException){

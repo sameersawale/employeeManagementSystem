@@ -24,22 +24,21 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#" th:href="@{/}">Employee Management System</a>
-    </div>
 
+    </div>
+    <ul class="navbar-nav mr-auto">
+    <a class="navbar-brand" href="#" th:href="@{/newEmployee}" > Add Employee</a>
+
+    <a class="navbar-brand" href="#" th:href="@{/employeeSearch}" > Search</a>
+    </ul>
   </div>
 </nav>
 <br>
 <br>
 <div class="container my-2">
-  <h1>Employee List</h1>
 
-  <a th:href="@{/newEmployee}" class="btn btn-primary btn-sm mb-3"> Add Employee</a>
-  <br>
-  <br>
-  <a th:href="@{/employeeSearch}" class="btn btn-primary btn-sm mb-3"> Search Employee By Department</a>
+  <h2>Employee List</h2>
 
-  <br>
-  <br>
   <table border="1" class="table table-striped table-responsive-md">
     <thead>
     <tr>
@@ -80,7 +79,7 @@
       <td th:text="${employee.contactNumber}"></td>
       <td th:text="${employee.email}"></td>
       <td>
-        <img th:src="@{${employee.PictureImagePath}}" width="50" height="68">
+        <img th:src="@{${employee.PictureImagePath}}" alt="Employee Picture" width="50" height="68">
       </td>
       <td> <a th:href="@{/updateForm/{id}(id=${employee.id})}" class="btn btn-primary">Update</a>
         <a th:href="@{/delete/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a>
