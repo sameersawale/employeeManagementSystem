@@ -1,5 +1,6 @@
 package com.example.EmployeeManagementSystem.service;
 
+import com.example.EmployeeManagementSystem.DTOs.EmployeeDto;
 import com.example.EmployeeManagementSystem.model.Employee;
 import com.example.EmployeeManagementSystem.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,28 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
+    public Employee updateEmployee(int id, EmployeeDto employeeDto) {
+        Employee employee=employeeRepository.findById(id).get();
+
+        employee.setFirstName(employeeDto.getFirstName());
+        employee.setLastName(employeeDto.getLastName());
+        employee.setSalary(employeeDto.getSalary());
+        employee.setDepartment(employeeDto.getDepartment());
+        employee.setPosition(employeeDto.getPosition());
+        employee.setEmail(employeeDto.getEmail());
+        employee.setContactNumber(employeeDto.getContactNumber());
+
+         employeeRepository.save(employee);
+         return employee;
+    }
+
+    @Override
+    public List<Employee> getEmployeeList() {
+        List<Employee> employeeList=employeeRepository.findAll();
+        return employeeList;
+    }
+
+    @Override
     public List<Employee> getByDepartment(String department) {
         List<Employee> employeeList=employeeRepository.findByDepartment(department);
 
@@ -50,4 +73,6 @@ public class EmployeeServiceImpl implements EmployeeService{
         Pageable pageable= PageRequest.of(pageNo-1, pageSize, sort);
         return  employeeRepository.findAll(pageable);
     }
+
+
 }

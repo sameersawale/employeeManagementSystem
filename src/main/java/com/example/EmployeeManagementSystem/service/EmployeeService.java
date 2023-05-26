@@ -1,5 +1,6 @@
 package com.example.EmployeeManagementSystem.service;
 
+import com.example.EmployeeManagementSystem.DTOs.EmployeeDto;
 import com.example.EmployeeManagementSystem.model.Employee;
 import org.springframework.data.domain.Page;
 
@@ -13,7 +14,9 @@ public interface EmployeeService {
 
     public String deleteEmployee(int id);
 
-//    public Employee updateEmployee(Employee employee);
+    public Employee updateEmployee(int id, EmployeeDto employeeDto);
+
+    public List<Employee> getEmployeeList();
 
     public List<Employee> getByDepartment(String department);
 
